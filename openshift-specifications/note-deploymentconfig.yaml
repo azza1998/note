@@ -1,0 +1,23 @@
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  name: notes-app
+  labels:
+    app: notes-app
+spec:
+  triggers:
+  - type: ConfigChange
+  replicas: 1
+  selector:
+    app: notes-app
+  template:
+    metadata:
+      labels:
+        app: notes-app
+    spec:
+
+      containers:
+        - name: notes-app
+          image: 172.30.48.47:5000/notes-app:latest
+      imagePullSecrets:
+        - name: nexus-docker

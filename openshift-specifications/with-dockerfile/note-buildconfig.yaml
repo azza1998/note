@@ -1,0 +1,19 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: notes-app
+  labels:
+    app: notes-app
+spec:
+  strategy:
+    type: Docker
+  source:
+    type: Git
+    git:
+      uri: "https://github.com/azza1998/note.git"
+      ref: master
+    contextDir: .
+  output:
+    to:
+      kind: DockerImage
+      name: "172.30.48.47:5000/notes-app:latest"

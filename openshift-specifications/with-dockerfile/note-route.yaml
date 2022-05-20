@@ -1,0 +1,12 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: notes-app
+  labels:
+    app: notes-app
+spec:
+  to:
+    kind: Service
+    name: notes-app
+  port:
+    targetPort: 4000

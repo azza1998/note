@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: notes-app
+  labels:
+    app: notes-app
+spec:
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+  selector:
+    app: notes-app
+  type: ClusterIP
